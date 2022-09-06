@@ -92,6 +92,15 @@ class DataModule {
         this.generateNewPokemon();
     }
 
+    getDataToRender(): object{
+        return {
+            user: this.user,
+            quote: this.quote,
+            pokemon: this.pokemon,
+            aboutMe: this.aboutMe
+        }
+    }
+
     async getNewUser() {
         const response= await $.get(`https://randomuser.me/api/?results=${NUM_OF_FRIENDS}`);
         console.log(response);

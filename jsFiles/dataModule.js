@@ -66,6 +66,14 @@ class DataModule {
             this.generateNewPokemon();
         });
     }
+    getDataToRender() {
+        return {
+            user: this.user,
+            quote: this.quote,
+            pokemon: this.pokemon,
+            aboutMe: this.aboutMe
+        };
+    }
     getNewUser() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield $.get(`https://randomuser.me/api/?results=${NUM_OF_FRIENDS}`);
