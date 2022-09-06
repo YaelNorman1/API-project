@@ -10,11 +10,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const NUM_OF_FRIENDS = 8;
 class User {
-    constructor() {
-        this.fname = '';
-        this.lname = '';
-        this.address = { city: '', state: '' };
-        this.friends = [];
+    // constructor(){
+    //     this.fname= '';
+    //     this.lname= '';
+    //     this.address= {city:'',state:''};
+    //     this.friends= [];
+    // }
+    constructor(fname, lname, city, state, friends) {
+        this.fname = fname;
+        this.lname = lname;
+        this.address = { city, state };
+        this.friends = friends;
     }
     setValues(fname, lname, city, state, friends) {
         this.fname = fname;
@@ -24,19 +30,25 @@ class User {
     }
 }
 class AboutMe {
-    constructor() {
-        this.aboutMe = '';
+    constructor(text) {
+        this.aboutMe = text;
     }
     setValue(text) {
         this.aboutMe = text;
     }
 }
 class Quote {
-    constructor() {
-        this.quote = '';
+    constructor(text) {
+        this.quote = text;
     }
     setValue(text) {
         this.quote = text;
+    }
+}
+class Pokemon {
+    constructor(name, url) {
+        this.name = name;
+        this.url = url;
     }
 }
 class DataModule {
@@ -44,40 +56,83 @@ class DataModule {
         this.user = {};
         this.quote = {};
         this.aboutMe = {};
+        this.pokemon = {};
     }
     generateNewPage() {
-        this.generateNewUser();
-        this.generateNewAboutMe();
-        // this.generateNewQuote();
+        return __awaiter(this, void 0, void 0, function* () {
+            this.generateNewUser();
+            this.generateNewAboutMe();
+            this.generateNewQuote();
+            this.generateNewPokemon();
+        });
     }
     getNewUser() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield $.get(`https://randomuser.me/api/?results=${NUM_OF_FRIENDS}`);
+            console.log(response);
             return response;
         });
     }
     generateNewUser() {
-        this.getNewUser().then(user => {
-            const fname = user.results[0].name.first;
-            const lname = user.results[0].name.last;
-            const city = user.results[0].location.city;
-            const state = user.results[0].location.state;
-            let friends = [];
-            for (let i = 1; i < user.results.length; i++) {
-                friends.push({ fname: `${user.results[i].name.first}`, lname: ` ${user.results[i].name.last}` });
-            }
-            this.user.setValues(fname, lname, city, state, friends);
+        return __awaiter(this, void 0, void 0, function* () {
+            this.getNewUser().then(user => {
+                const fname = user.results[0].name.first;
+                const lname = user.results[0].name.last;
+                const city = user.results[0].location.city;
+                const state = user.results[0].location.state;
+                let friends = [];
+                for (let i = 1; i < user.results.length; i++) {
+                    friends.push({ fname: `${user.results[i].name.first}`, lname: ` ${user.results[i].name.last}` });
+                }
+                // this.user.setValues(fname,lname,city,state, friends);
+                this.user = new User(fname, lname, city, state, friends);
+            });
         });
     }
     getNewAboutMe() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield $.get(`https://baconipsum.com/api/?type=all-meat&sentences=1&start-with-lorem=1`);
+            console.log(response);
             return response;
         });
     }
     generateNewAboutMe() {
-        this.getNewAboutMe().then(text => {
-            this.aboutMe.setValue(text);
+        return __awaiter(this, void 0, void 0, function* () {
+            this.getNewAboutMe().then(text => {
+                // this.aboutMe.setValue(text);
+                this.aboutMe = new AboutMe(text);
+            });
+        });
+    }
+    getNewQuote() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield $.get("https://api.kanye.rest");
+            return response;
+        });
+    }
+    generateNewQuote() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.getNewQuote().then(text => {
+                console.log(text);
+                this.quote = new Quote(text);
+            });
+        });
+    }
+    getNewPokemon() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let rand = Math.floor(Math.random() * (30 - 10 + 1) + 10);
+            const response = yield $.get(`https://pokeapi.co/api/v2/pokemon/${rand}/`);
+            return response;
+        });
+    }
+    generateNewPokemon() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.getNewPokemon().then(pokemon => {
+                let name = pokemon.name;
+                let url = pokemon.sprites.back_default;
+                this.pokemon = new Pokemon(name, url);
+                console.log(pokemon);
+            });
         });
     }
 }
