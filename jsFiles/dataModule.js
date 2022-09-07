@@ -67,12 +67,12 @@ class DataModule {
         });
     }
     getDataToRender() {
-        return {
-            user: this.user,
-            quote: this.quote,
-            pokemon: this.pokemon,
-            aboutMe: this.aboutMe
-        };
+        return [
+            this.user,
+            this.quote,
+            this.pokemon,
+            this.aboutMe
+        ];
     }
     getNewUser() {
         return __awaiter(this, void 0, void 0, function* () {

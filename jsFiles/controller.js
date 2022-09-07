@@ -12,9 +12,9 @@ const dataModule = new DataModule();
 const render = new Render();
 $("#generator-btn").on("click", function () {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log('in click new user ');
+        // console.log('in click new user ');
         yield dataModule.generateNewPage();
-        console.log(dataModule.getDataToRender());
+        // console.log(dataModule.getDataToRender());
         render.renderPage(dataModule.getDataToRender());
     });
 });

@@ -4,8 +4,12 @@
     padding: 0;
 }
 
+p {
+    font-weight: bold;
+}
+
 body {
-    background-color: #ecf0f1;
+    background-color: #F8EFBA;
     font-family: 'Nunito', sans-serif;
 }
 
@@ -21,7 +25,7 @@ body {
     grid-row: 1;
     grid-column: 1;
     font-size: 25px;
-    background-color: #3498db;
+    background-color: #ffaf40;
     padding: 1vmax;
     box-shadow: 1px 1px 3px black;
     border-bottom-right-radius: 4px;
@@ -52,7 +56,7 @@ body {
     font-family: 'Indie Flower', cursive;
 }
 
-.quote-container>p {
+.quote-container > p {
     font-family: 'Nunito', sans-serif;
     font-size: 1vmax;
 }
@@ -68,7 +72,7 @@ body {
 .friends {
     grid-row: 3;
     grid-column: 3;
-    background-color: #3498db;
+    background-color: #1B9CFC;
     font-size: 1.5vmax;
     color: #ecf0f1;
     border-top-left-radius: 4px;
@@ -90,7 +94,7 @@ button {
     width: 200px;
     height: 50px;
     border-radius: 6px;
-    background-color: #27ae60;
+    background-color: #cd84f1;
     color: #ecf0f1;
     font-size: 1vmax;
     cursor: pointer;

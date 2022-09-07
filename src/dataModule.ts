@@ -1,4 +1,5 @@
 const NUM_OF_FRIENDS=8;
+// type Type= User| Quote | Pokemon| AboutMe;
 
 interface Friends {
     fname: string;
@@ -92,13 +93,15 @@ class DataModule {
         await this.generateNewPokemon();
     }
 
-    getDataToRender(): object{
-        return {
-            user: this.user,
-            quote: this.quote,
-            pokemon: this.pokemon,
-            aboutMe: this.aboutMe
-        }
+    getDataToRender(): any [] {
+        return [
+            this.user,
+            this.quote,
+            this.pokemon,
+            this.aboutMe
+        ];
+            
+    
     }
 
     async getNewUser() {
