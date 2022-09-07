@@ -60,10 +60,10 @@ class DataModule {
     }
     generateNewPage() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.generateNewUser();
-            this.generateNewAboutMe();
-            this.generateNewQuote();
-            this.generateNewPokemon();
+            yield this.generateNewUser();
+            yield this.generateNewAboutMe();
+            yield this.generateNewQuote();
+            yield this.generateNewPokemon();
         });
     }
     getDataToRender() {
@@ -83,7 +83,7 @@ class DataModule {
     }
     generateNewUser() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.getNewUser().then(user => {
+            yield this.getNewUser().then(user => {
                 const fname = user.results[0].name.first;
                 const lname = user.results[0].name.last;
                 const city = user.results[0].location.city;
@@ -106,7 +106,7 @@ class DataModule {
     }
     generateNewAboutMe() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.getNewAboutMe().then(text => {
+            yield this.getNewAboutMe().then(text => {
                 // this.aboutMe.setValue(text);
                 this.aboutMe = new AboutMe(text);
             });
@@ -120,7 +120,7 @@ class DataModule {
     }
     generateNewQuote() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.getNewQuote().then(text => {
+            yield this.getNewQuote().then(text => {
                 console.log(text);
                 this.quote = new Quote(text);
             });
@@ -135,7 +135,7 @@ class DataModule {
     }
     generateNewPokemon() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.getNewPokemon().then(pokemon => {
+            yield this.getNewPokemon().then(pokemon => {
                 let name = pokemon.name;
                 let url = pokemon.sprites.back_default;
                 this.pokemon = new Pokemon(name, url);

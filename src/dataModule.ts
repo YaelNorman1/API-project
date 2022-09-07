@@ -86,10 +86,10 @@ class DataModule {
     }
 
     async generateNewPage() {
-        this.generateNewUser();
-        this.generateNewAboutMe();
-        this.generateNewQuote();
-        this.generateNewPokemon();
+        await this.generateNewUser();
+        await this.generateNewAboutMe();
+        await this.generateNewQuote();
+        await this.generateNewPokemon();
     }
 
     getDataToRender(): object{
@@ -108,7 +108,7 @@ class DataModule {
     }
 
     async generateNewUser(){       
-        this.getNewUser().then(user => {
+        await this.getNewUser().then(user => {
             const fname= user.results[0].name.first;
             const lname= user.results[0].name.last;
             const city= user.results[0].location.city;
@@ -130,7 +130,7 @@ class DataModule {
     }
 
     async generateNewAboutMe(){
-        this.getNewAboutMe().then(text =>{
+        await this.getNewAboutMe().then(text =>{
             // this.aboutMe.setValue(text);
             this.aboutMe= new AboutMe(text);
         })
@@ -142,7 +142,7 @@ class DataModule {
     }
 
     async generateNewQuote(){
-        this.getNewQuote().then(text =>{
+        await this.getNewQuote().then(text =>{
         console.log(text);
         this.quote=new Quote(text);
         })
@@ -155,7 +155,7 @@ class DataModule {
     }
 
     async generateNewPokemon() {
-        this.getNewPokemon().then(pokemon =>{
+        await this.getNewPokemon().then(pokemon =>{
             let name: string= pokemon.name;
             let url: string=pokemon.sprites.back_default;
             this.pokemon= new Pokemon (name, url);
