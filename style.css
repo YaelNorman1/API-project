@@ -8,16 +8,21 @@ p {
     font-weight: bold;
 }
 
+h4 {
+    text-align: var(--bs-body-text-align);
+}
+
 body {
-    background-color: #F8EFBA;
+    background-color: #F6EEE0;
     font-family: 'Nunito', sans-serif;
 }
 
 .container {
     height: 100vh;
-    display: grid;
+    /* display: grid;
     grid-template-columns: 3fr 2fr 1fr;
-    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-rows: 1fr 1fr 3fr; */
+    /* margin-top: 100px; */
 }
 
 .user-container {
@@ -25,10 +30,13 @@ body {
     grid-row: 1;
     grid-column: 1;
     font-size: 25px;
-    background-color: #ffaf40;
+    background-color: #C38370;
     padding: 1vmax;
-    box-shadow: 1px 1px 3px black;
-    border-bottom-right-radius: 4px;
+    /* box-shadow: 1px 1px 3px black; */
+    border-radius: 4px;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr ; */
 }
 
 .user-info {
@@ -36,6 +44,7 @@ body {
     display: inline-block;
     vertical-align: middle;
 }
+
 
 #profile-pic {
     display: inline-block;
@@ -72,11 +81,11 @@ body {
 .friends {
     grid-row: 3;
     grid-column: 3;
-    background-color: #1B9CFC;
+    background-color: #E4B7A0;
     font-size: 1.5vmax;
     color: #ecf0f1;
-    border-top-left-radius: 4px;
-    box-shadow: -1px -1px 3px black;
+    border-radius: 4px;
+    /* box-shadow: -1px -1px 3px black; */
     padding-left: 1vmax;
 }
 
@@ -85,7 +94,7 @@ ul {
 }
 
 .buttons {
-    position: fixed;
+    /* position: fixed; */
     bottom: 1vw;
     left: 1vw;
 }
@@ -94,10 +103,11 @@ button {
     width: 200px;
     height: 50px;
     border-radius: 6px;
-    background-color: #cd84f1;
+    background-color: #A45C40;
     color: #ecf0f1;
     font-size: 1vmax;
     cursor: pointer;
+    /* object-position: right; */
 }
 
 #gen-page:focus {

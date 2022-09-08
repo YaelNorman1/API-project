@@ -11,25 +11,45 @@
     <title>API Project</title>
 </head>
 <body>
+    <nav class="navbar sticky-top navbar-expand navbar-dark " style="background-color: #A45C40;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">API Project</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
     <div class="container">	
-        <div class="user-container"></div>	
-        <div class="quote-container"></div>	
-        <div class="content-container">	
-            <div class="pokemon-container"></div>	
-            <div class="meat-container"></div>	
-        </div>	
-        <div class="friends">	
-            <h4>Friends</h4>	
-            <div class="friends-container">	
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="user-container"></div>	
+                <div class="quote-container"></div>	
+                <div class="content-container">	
+                    <div class="pokemon-container"></div>	
+                    <div class="meat-container"></div>	
+                </div>	
+            </div>
+            <div class="col-sm-4 friends float-right" >	
+                <h4>Friends</h4>	
+                <div class="friends-container">	
+                </div>	
             </div>	
-        </div>	
+            <button type="button" class="buttons" id="generator-btn">Genarate New Page</button>
+        </div>
     </div>
-    <button type="button" class="buttons" id="generator-btn">Genarate New Page</button>
-
+   
 
     <script id="user-template" type="text/x-handlebars-template">
-        <div>{{user.fname}} {{user.lname}}</div>
-        <div>{{user.address.city}}, {{user.address.state}}</div>
+        <div class="user-info">
+            <img class="user-pic" id="profile-pic" src="{{{user.picture}}}">
+            <div>{{user.fname}} {{user.lname}}</div>
+            <div>{{user.address.city}}, {{user.address.state}}</div>
+        </div>
     </script>
     <script id="friends-template" type="text/x-handlebars-template">
         <ul>

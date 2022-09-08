@@ -1,8 +1,6 @@
 class Render{
-
-
+    
     renderPage(data: any []) {         
-        
         this.renderUser(data[0]);
         this.renderQuote(data[1]);
         this.renderPokemon(data[2]);
